@@ -34,7 +34,6 @@ const Media = ({ src, ...rest }) => {
   ) : (
     <a href={src} target="_blank" rel="noreferrer" {...rest}>
       See attached file
-      {console.log(`Looks like we don't support files with type of ${type}`)}
     </a>
   );
 };
