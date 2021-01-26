@@ -1,6 +1,6 @@
 {
   "name": "@michaelgrigoryan25/react-media",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "./src/Media.js",
   "license": "Apache License 2.0",
   "dependencies": {
