@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "Apache License 2.0",
   "dependencies": {
+    "@babel/plugin-syntax-jsx": "^7.12.1",
     "axios": "^0.21.1",
     "react": "^17.0.1"
   },

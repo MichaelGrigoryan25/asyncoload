@@ -1,33 +1,32 @@
 import axios from "axios";
-import { useEffect, useState, Component } from "react";
+import { useEffect, useState } from "react";
 
-class Media extends Component {
-  render() {
-    const [type, setType] = useState("");
-    const [file, setFile] = useState({});
-    const { component: Component, src, ...rest } = this.props;
+const Media = ({ src, ...rest }) => {
+  const [type, setType] = useState("");
+  const [file, setFile] = useState({});
 
-    useEffect(() => {
-      (async () => {
-        if (src.length === 0) {
-          throw new Error("No URL provided");
-        } else {
-          const { data } = await axios.get(src, {
-            responseType: "blob",
-          });
-          setFile(
-            URL.createObjectURL(
-              new File([data], Date(), {
-                type: data.type,
-              })
-            )
-          );
-          setType(data.type);
-        }
-      })();
-    }, [src]);
+  useEffect(() => {
+    (async () => {
+      if (src.length === 0) {
+        throw new Error("No URL provided");
+      } else {
+        const { data } = await axios.get(src, {
+          responseType: "blob",
+        });
+        setFile(
+          URL.createObjectURL(
+            new File([data], Date(), {
+              type: data.type,
+            })
+          )
+        );
+        setType(data.type);
+      }
+    })();
+  }, [src]);
 
-    return type.startsWith("image") ? (
+  return (
+    type.startsWith("image") ? (
       <img src={file} {...rest} alt={src} />
     ) : type.startsWith("video") ? (
       <video src={file} {...rest} alt={src}></video>
@@ -37,8 +36,8 @@ class Media extends Component {
       <a href={src} target="_blank" rel="noreferrer" {...rest}>
         See attached file
       </a>
-    );
-  }
-}
+    )
+  )
+};
 
 export default Media;
