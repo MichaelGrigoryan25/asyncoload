@@ -1,12 +1,13 @@
 {
   "name": "asyncoload",
-  "version": "1.6.0",
-  "main": "index.js",
+  "version": "1.0.0",
+  "main": "dist/index",
   "license": "Apache License 2.0",
+  "scripts": {
+    "build": "babel src/ -d dist/"
+  },
   "dependencies": {
-    "@babel/plugin-syntax-jsx": "^7.12.1",
-    "axios": "^0.21.1",
-    "react": "^17.0.1"
+    "axios": "^0.21.1"
   },
   "eslintConfig": {
     "extends": [

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 
 const Media = ({ src, ...rest }) => {
   const [type, setType] = useState("");
@@ -26,18 +26,20 @@ const Media = ({ src, ...rest }) => {
   }, [src]);
 
   return (
-    type.startsWith("image") ? (
-      <img src={file} {...rest} alt={src} />
-    ) : type.startsWith("video") ? (
-      <video src={file} {...rest} alt={src}></video>
-    ) : type.startsWith("audio") ? (
-      <audio src={file} {...rest}></audio>
-    ) : (
-      <a href={src} target="_blank" rel="noreferrer" {...rest}>
-        See attached file
-      </a>
-    )
-  )
+    <Fragment>
+      {type.startsWith("image") ? (
+        <img src={file} {...rest} alt={src} />
+      ) : type.startsWith("video") ? (
+        <video src={file} {...rest} alt={src}></video>
+      ) : type.startsWith("audio") ? (
+        <audio src={file} {...rest}></audio>
+      ) : (
+        <a href={src} target="_blank" rel="noreferrer" {...rest}>
+          See attached file
+        </a>
+      )}
+    </Fragment>
+  );
 };
 
 export default Media;
