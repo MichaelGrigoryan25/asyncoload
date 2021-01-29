@@ -22,6 +22,8 @@ const Media = ({ src, ...rest }) => {
           )
         );
         setType(data.type);
+
+        return data;
       }
     })();
   }, [src]);
