@@ -1,6 +1,6 @@
 {
   "name": "asyncoload",
-  "version": "1.21.0",
+  "version": "1.23.0",
   "main": "./dist/index",
   "license": "Apache License 2.0",
   "files": [
